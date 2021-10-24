@@ -1,0 +1,73 @@
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+# Makefiles places all binaries in bin folder
+**/bin
+**/build
+
+# Python
+*.pyc
+
+# Pdfs and other image/binary files
+*.pdf
+*.root
+*.svg
+
+# Root generated files
+*.wscode*
+RooCFAuto*
+
+# Backup files
+*~
+
+# log files and other files capturing stdout
+*.log
+*.out
+
+# json (header only library)
+general/interface/json.hpp
+
+# toy mc generation executable
+toy_mc_generation/run_chicpolgen
+
+# ROOT dict and pcm files
+*rdict.pcm
+# NOTE: assumes a certain naming convention!
+dict*.cxx
+
+/bin
+*.pyc
+*.root
+/results
+*.pdf
+

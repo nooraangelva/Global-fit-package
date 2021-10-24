@@ -1,0 +1,82 @@
+#!/bin/bash
+set -e
+
+if [[ $# -lt 2 ]]; then
+    echo "Usage: make_all_plots HIST_FILE OUT_BASE [-nz] [-nr] [--no-ratio] [--no-dist]"
+    exit 64
+fi
+if $(check_args_flag "-nz" ${@}); then
+    echo "Normalizing distribution hists at zero"
+    NORM_AT_0="--normalize-at-zero"
+fi
+if $(check_args_flag "-nr" ${@}); then
+    echo "Normalizing ratio hists by const factor from fit"
+    NORM_RATIO="--norm-ratio"
+fi
+if $(check_args_flag "--no-ratio" ${@}); then
+    echo "Not producing ratio plots"
+    NO_RATIOS=1
+fi
+if $(check_args_flag "--no-dist" ${@}); then
+    echo "Not producing distribution plots"
+    NO_DISTS=1
+fi
+PLOT_FMT=".pdf"
+if $(check_args_flag "-svg" ${@}); then
+    echo "Producing svg plots instead of pdf"
+    PLOT_FMT=".svg"
+fi
+INPUTFILE=${1}
+OUTPUTBASE=${2}
+FRAMES=(HX CS)
+
+mkdir -p ${OUTPUTBASE}
+
+## create associative array for 2016 triggers (pt bin to trigger)
+declare -A TRIG_2016_PT=( [1]=Dimuon10_Jpsi_Barrel \
+                              [2]=Dimuon16_Jpsi \
+                              [3]=Dimuon20_Jpsi \
+                              [4]=Dimuon20_Jpsi \
+                              [5]=Dimuon16_Jpsi ) # TODO: Use Dimuon20 when data available
+
+TRIG_2012=Dimuon8_Jpsi
+INPUT_2012_DATA="2012:${TRIG_2012}:data:8 TeV"
+INPUT_2012_MC="2012:${TRIG_2012}:mc:8 TeV (MC)"
+
+VARIABLES=( costh cosalpha phi )
+PT_BINS=$(echo {1..5})
+
+## make the ratio and dist plots for a given input
+function ratio_dist_plots() {
+    var=${1}
+    frame=${2}
+    ptbin=${3}
+    output_base=${4}
+
+    INPUT_2016_DATA="2016:${TRIG_2016_PT[${ptbin}]}:data:13 TeV"
+
+    input="--input=""\"${INPUT_2012_DATA}"\"" --input=""\"${INPUT_2012_MC}"\"" --input=""\"${INPUT_2016_DATA}"\"""
+
+    plotter=${CHIB_CHIC_POLFW_DIR}/polarization/plotting/make_plot.py
+
+    if [[ ${NO_RATIOS} -eq 0 ]]; then
+        ${plotter} --input="${INPUT_2012_DATA}" --input="${INPUT_2012_MC}" --input="${INPUT_2016_DATA}" \
+                   --variable=${var} --frame=${frame} --ptbin=${ptbin} --output=${output_base}_ratio${PLOT_FMT} \
+                   ${NORM_RATIO} --ratio ${INPUTFILE}
+    fi
+    if [[ ${NO_DISTS} -eq 0 ]]; then
+        ${plotter} --input="${INPUT_2012_DATA}" --input="${INPUT_2012_MC}" --input="${INPUT_2016_DATA}" \
+                   --variable=${var} --frame=${frame} --ptbin=${ptbin} --output=${output_base}_dists${PLOT_FMT} \
+                   ${NORM_AT_0} --dist ${INPUTFILE}
+    fi
+}
+
+for var in ${VARIABLES[@]}; do
+    for frame in ${FRAMES[@]}; do
+        for pt in ${PT_BINS[@]}; do
+            outbase=${OUTPUTBASE}/${var}_${frame}_pt${pt}
+
+            ratio_dist_plots ${var} ${frame} ${pt} ${outbase}
+        done
+    done
+done
