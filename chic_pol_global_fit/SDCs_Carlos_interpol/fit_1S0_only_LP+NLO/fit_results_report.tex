@@ -1,0 +1,76 @@
+\documentclass[a4paper, 11pt]{scrartcl}
+
+\usepackage{graphicx}
+\usepackage{subfig}
+\usepackage[margin=2cm]{geometry}\usepackage{tabulary}
+\usepackage{multirow}
+\usepackage{amsmath}
+
+\newcommand{\lumi}[1]{$\mathcal{L}_{\textrm{#1}}$}
+\newcommand{\br}[2]{$\mathcal{B}(#1 \to #2)$}
+\newcommand{\Swave}[3]{{}^{#1}S_{#2}^{[#3]}}
+\newcommand{\Pwave}[2]{{}^{3}P_{#1}^{[#2]}}
+\newcommand{\ldme}[2]{\mathcal{O}^{#1}(#2)}
+\newcommand{\ldmeratio}[2]{\mathcal{R}_{#2}(#1, \Swave{1}{0}{8})}
+\newcommand{\ldmedr}[1]{\mathcal{RR}(#1, \Swave{1}{0}{8})}
+\begin{document}
+
+Number of fitted data points: 108\\Total number of free parameters: 17\\Number of nuisance parameters: 10\\$\chi^2$ / ndf = 199.345 / 101\begin{figure}
+
+\subfloat[][combined\_cs]{\includegraphics[width=0.5\linewidth]{./plots_for_report/combined_cs.pdf}}
+\subfloat[][psi\_pol]{\includegraphics[width=0.5\linewidth]{./plots_for_report/psi_pol.pdf}}
+
+\subfloat[][chic\_ratio\_cs]{\includegraphics[width=0.5\linewidth]{./plots_for_report/chic_ratio_cs.pdf}}
+\subfloat[][costh\_ratio\_ptm\_3p29]{\includegraphics[width=0.5\linewidth]{./plots_for_report/costh_ratio_ptm_3p29.pdf}}
+
+\subfloat[][costh\_ratio\_ptm\_4p64]{\includegraphics[width=0.5\linewidth]{./plots_for_report/costh_ratio_ptm_4p64.pdf}}
+\subfloat[][costh\_ratio\_ptm\_7p10]{\includegraphics[width=0.5\linewidth]{./plots_for_report/costh_ratio_ptm_7p10.pdf}}
+
+\end{figure}
+\begin{table}
+\centering
+\begin{tabulary}{1.0\linewidth}{l | c}
+parameter & best-fit value \\ \hline
+$\ldme{\chi_{c0}}{\Swave{3}{1}{8}}$ & $1.246 \cdot 10^{-3} \pm 8.685 \cdot 10^{-5}$ \\
+$\ldme{\chi_{c0}}{\Pwave{0}{1}}$ & $7.781 \cdot 10^{-3} \pm 5.676 \cdot 10^{-4}$ \\
+$\ldme{J/\psi}{\Swave{3}{1}{1}}$ & $0 \pm 0$ \\
+$\ldme{\psi(2S)}{\Swave{3}{1}{1}}$ & $0 \pm 0$ \\
+$\ldme{J/\psi}{\Swave{1}{0}{8}}$ & $0.0321 \pm 1.387 \cdot 10^{-3}$ \\
+$\ldme{\psi(2S)}{\Swave{1}{0}{8}}$ & $5.347 \cdot 10^{-3} \pm 2.093 \cdot 10^{-4}$ \\
+$\ldmeratio{\Pwave{J}{8}}{J/\psi}$ & $0 \pm 0$ \\
+$\ldmeratio{\Swave{3}{1}{8}}{J/\psi}$ & $0 \pm 0$ \\
+$\ldmedr{\Pwave{J}{8}}$ & $1.0000 \pm 0$ \\
+$\ldmedr{\Swave{3}{1}{8}}$ & $1.0000 \pm 0$ \\
+\hline\hline
+\br{\psi(2S)}{J/\psi \pi\pi} & $1.0003 \pm 8.611 \cdot 10^{-3}$ \\
+\br{\psi(2S)}{\mu\mu} & $0.9801 \pm 0.0418$ \\
+\br{\psi(2S)}{\chi_{c2}} & $1.0060 \pm 0.0194$ \\
+\br{\psi(2S)}{\chi_{c1}} & $0.9914 \pm 0.0221$ \\
+\br{\psi(2S)}{J/\psi} & $1.0000 \pm 9.772 \cdot 10^{-3}$ \\
+\br{\chi_{c2}}{J/\psi} & $1.0067 \pm 0.0259$ \\
+\br{\chi_{c1}}{J/\psi} & $0.9914 \pm 0.0293$ \\
+\br{J/\psi}{\mu\mu} & $1.0001 \pm 5.554 \cdot 10^{-3}$ \\
+\lumi{ATLAS} & $0.9928 \pm 0.0211$ \\
+\lumi{ATLAS} & $1.0048 \pm 0.0181$ \\
+$n_{1}$ & $0.4667 \pm 0.0101$ \\
+$n_{2}$ & $0.4363 \pm 8.672 \cdot 10^{-3}$ \\
+$n_{3}$ & $0.4370 \pm 0.0141$ \\
+\end{tabulary}
+\caption{Fit parameter values. 
+$\mathcal{R}_{\mathcal{Q}}(X, Y) \equiv \ldme{\mathcal{Q}}{X} / \ldme{\mathcal{Q}}{Y}$.
+$\mathcal{RR}(X, Y) \equiv \mathcal{R}_{\psi(2S)}(X, Y) / \mathcal{R}_{J/\psi}(X, Y)$
+}
+\end{table}
+\begin{table}
+\centering
+\begin{tabulary}{1.0\linewidth}{l | c}
+parameter & value \\ \hline
+$\ldme{J/\psi}{\Swave{3}{1}{8}}$ & $0.000e+00 \pm 0.000e+00$ \\
+$\ldme{J/\psi}{\Pwave{J}{8}}$ & $0.000e+00 \pm 0.000e+00$ \\
+$\ldme{\psi(2S)}{\Swave{3}{1}{8}}$ & $0.000e+00 \pm 0.000e+00$ \\
+$\ldme{\psi(2S)}{\Pwave{J}{8}}$ & $0.000e+00 \pm 0.000e+00$ \\
+\end{tabulary}
+\caption{Derived parameter values at $p_{T}/M = 5$}
+\end{table}
+
+\end{document}
