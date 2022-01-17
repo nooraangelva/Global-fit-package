@@ -19,21 +19,22 @@ Here on GitHub.com, navigate to the main page of this repository, if you are not
 
 Above the list of files, click  Code.
 
-If you have git you can install it the following way, if you don't have git you can install it following these [instructions](https://github.com/git-guides/install-git). If you don't want to install Git you can also download the repository as a zip file and extract it to the place you want to.
+If you have git you can install it using your terminal, if you don't have git you can install it following these [instructions](https://github.com/git-guides/install-git). If you don't want to install Git you can also download the repository as a zip file and extract it to the place you want to.
 
 ![image](https://user-images.githubusercontent.com/78410623/140980507-f2d5e82e-2e85-4c9d-a341-bf622fb5d71d.png)
 
-To clone the repository using HTTPS, under "Clone with HTTPS", click . To clone the repository using an SSH key, including a certificate issued by your organization's SSH certificate authority, click Use SSH, then click . To clone a repository using GitHub CLI, click Use GitHub CLI, then click .
+#### Getting the repository using git:
+
+1. To clone the repository using HTTPS, under "Clone with HTTPS", click . To clone the repository using an SSH key, including a certificate issued by your organization's SSH certificate authority, click Use SSH, then click . To clone a repository using GitHub CLI, click Use GitHub CLI, then click .
 The clipboard icon for copying the URL to clone a repository
 
-The clipboard icon for copying the URL to clone a repository with GitHub CLI
+2. The clipboard icon for copying the URL to clone a repository with GitHub CLI
 
-Open Terminal.
+3. Open Terminal.
 
-Change the current working directory to the location where you want the cloned directory.
+4. Change the current working directory to the location where you want the cloned directory.
 
-Type git clone, and then paste the URL you copied earlier.
-
+5. Type git clone, and then paste the URL you copied earlier.
 ```git clone https://github.com/nooraangelva/Global-fit-package.git```
 Press Enter to create your local clone.
 
