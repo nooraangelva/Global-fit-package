@@ -1,0 +1,25 @@
+# This is a basic workflow that is manually triggered
+
+name: Testing a pull_request
+
+# Controls when the action will run. Workflow runs when manually triggered using the UI
+# or API.
+on: 
+  pull_request:
+    branches:
+    - master
+
+jobs:
+  job1:
+    runs-on: linux-latest
+    name: Set up 
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build the platform
+      run: |
+        docker run --rm -it -v $PWD:/tmp nooraangelva/global_fit:1.0 /bin/bash
+        cd 
+        make all
+    - name: Test run for the platform
+      run: |
+        cd   
