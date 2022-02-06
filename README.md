@@ -57,7 +57,8 @@ make all
 scripts/run_nrqcd_fit.sh
 ```
 
-The results of the fit can be found in the directory /tmp/chic_pol_global_fit/SDCs_Carlos_interpol/fit_1S0_only_LP+NLO
+The results of the fit can be found in the directory ```/tmp/chic_pol_global_fit/SDCs_Carlos_interpol/fit_1S0_only_LP+NLO```
+
 You can access them from your file explorer you don't have to use the terminal for it.
 
 ### Developing the repository
