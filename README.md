@@ -1,4 +1,4 @@
-# Global fit package
+# Global Fit package
  
 ## Set up to run Global fit package with any computer
  
