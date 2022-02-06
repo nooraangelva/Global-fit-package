@@ -21,14 +21,4 @@ jobs:
     - name: Build the platform
       run: |
         echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
-        git clone https://github.com/nooraangelva/Global-fit-package.git
-        cd Global-fit-package/chic_pol_global_fit
-        make all
-    - name: Test run for the platform
-      run: |
-        scripts/run_nrqcd_fit.sh 
-    - name: See if results exist
-      run: |
-        scripts/run_nrqcd_fit.sh 
-        cd SDCs_Carlos_interpol/fit_1S0_only_LP+NLO/fit_results_report.tex
-    # Next step to check result values..
+       
