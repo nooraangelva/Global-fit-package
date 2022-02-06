@@ -2,7 +2,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Workflow
 metadata:
-  generateName: Globalfit-argo-
+  generateName: globalfit-argo-
 spec:
   entrypoint: globalfit-argo
   volumes:
