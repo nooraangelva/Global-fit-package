@@ -11,15 +11,20 @@ on:
 
 jobs:
   job1:
-    runs-on: linux-latest
+    runs-on: nooraangelva/global_fit
     name: Set up 
     steps:
     - uses: actions/checkout@v2
     - name: Build the platform
       run: |
-        docker run --rm -it -v $PWD:/tmp nooraangelva/global_fit:1.0 /bin/bash
-        cd 
+        git clone https://github.com/nooraangelva/Global-fit-package.git
+        cd Global-fit-package/chic_pol_global_fit
         make all
     - name: Test run for the platform
       run: |
-        cd   
+        scripts/run_nrqcd_fit.sh 
+    - name: See if results exist
+      run: |
+        scripts/run_nrqcd_fit.sh 
+        cd SDCs_Carlos_interpol/fit_1S0_only_LP+NLO/fit_results_report.tex
+    # Next step to check result values..
