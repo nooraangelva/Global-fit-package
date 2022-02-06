@@ -1,6 +1,6 @@
 # Global fit package
  
-## Set up to run Global fit package with any computer
+## Set up to run Global fit package
  
 ### Installing Docker
  
