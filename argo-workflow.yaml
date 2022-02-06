@@ -2,24 +2,22 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Workflow
 metadata:
-  generateName: nanoaod-argo-
+  generateName: Globalfit-argo-
 spec:
-  entrypoint: nanoaod-argo
+  entrypoint: globalfit-argo
   volumes:
     - name: workdir
       hostPath:
         path: /mnt/data
         type: DirectoryOrCreate
   templates:
-  - name: nanoaod-argo
+  - name: globalfit-argo
     script:
       image: nooraangelva/global_fit
       command: [sh]
       source: |
-        mkdir workspace
-        cd workspace
-        git clone https://github.com/nooraangelva/Global-fit-package.git
-        cd Global-fit-package/chic_pol_global_fit
+        git clone https://github.com/nooraangelva/Global-fit-package.git tmp
+        cd tmp/chic_pol_global_fit
         make all
         scripts/run_nrqcd_fit.sh 
         scripts/run_nrqcd_fit.sh 
