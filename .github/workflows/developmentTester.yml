@@ -5,18 +5,21 @@ name: Testing a pull_request
 # Controls when the action will run. Workflow runs when manually triggered using the UI
 # or API.
 on: 
+  push:
+    branches: [ $default-branch ]
   pull_request:
     branches:
     - master
 
 jobs:
-  job1:
+  Test:
     runs-on: nooraangelva/global_fit
     name: Set up 
     steps:
     - uses: actions/checkout@v2
     - name: Build the platform
       run: |
+        echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
         git clone https://github.com/nooraangelva/Global-fit-package.git
         cd Global-fit-package/chic_pol_global_fit
         make all
