@@ -17,26 +17,20 @@ Directions for [Linux](https://docs.docker.com/desktop/linux/install/)
 Here on GitHub.com, navigate to the main page of this repository, if you are not already on it.
 ![image](https://user-images.githubusercontent.com/78410623/140979822-66878ab2-bc8f-44f7-8908-e02bcb49ade8.png)
 
-Above the list of files, click  Code.
+Above the list of files, click  'Code'.
 
-If you have git you can install it using your terminal, if you don't have git you can install it following these [instructions](https://github.com/git-guides/install-git). If you don't want to install Git you can also download the repository as a zip file and extract it to the place you want to.
+If you have ```Git``` you can install it using your terminal, if you don't have ```Git``` you can install it following these [instructions](https://github.com/git-guides/install-git). If you don't want to install ```Git``` you can also download the repository as a zip file and extract it to the place you want to.
 
 ![image](https://user-images.githubusercontent.com/78410623/140980507-f2d5e82e-2e85-4c9d-a341-bf622fb5d71d.png)
 
 #### Getting the repository using git:
 
-1. To clone the repository using HTTPS, under "Clone with HTTPS", click . To clone the repository using an SSH key, including a certificate issued by your organization's SSH certificate authority, click Use SSH, then click . To clone a repository using GitHub CLI, click Use GitHub CLI, then click .
-The clipboard icon for copying the URL to clone a repository
+1. Open Terminal.
 
-2. The clipboard icon for copying the URL to clone a repository with GitHub CLI
+2. Change the current working directory to the location where you want the cloned directory.
 
-3. Open Terminal.
-
-4. Change the current working directory to the location where you want the cloned directory.
-
-5. Type git clone, and then paste the URL you copied earlier.
+3. Type git clone, and then paste the URL you copied earlier.
 ```git clone https://github.com/nooraangelva/Global-fit-package.git```
-Press Enter to create your local clone.
 
 Result:
 ```
@@ -48,7 +42,12 @@ git clone https://github.com/nooraangelva/Global-fit-package.git
 > Unpacking objects: 100% (10/10), done.
 ```
 
-### Running the Global-Fit-package from your terminal
+#### Getting the repository without Git:
+1. Choose ```Download ZIP```
+2. Extract all in your files to the place you want to store the repository
+
+
+### Running the Global-Fit-package using Docker
 Run the following commands in your terminal:
 
 ```
@@ -60,3 +59,7 @@ scripts/run_nrqcd_fit.sh
 
 The results of the fit can be found in the directory /tmp/chic_pol_global_fit/SDCs_Carlos_interpol/fit_1S0_only_LP+NLO
 You can access them from your file explorer you don't have to use the terminal for it.
+
+### Developing the repository
+
+Under development...
