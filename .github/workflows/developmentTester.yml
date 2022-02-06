@@ -6,7 +6,8 @@ name: Testing a pull_request
 # or API.
 on: 
   push:
-    branches: [ $default-branch ]
+    branches: 
+    - master
   pull_request:
     branches:
     - master
