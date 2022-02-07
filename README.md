@@ -4,7 +4,7 @@
  
 ### Installing Docker
  
-Download docker for your computer
+Download docker to your computer
  
 Directions for [Mac](https://docs.docker.com/desktop/mac/install/)
 
