@@ -2,26 +2,31 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Workflow
 metadata:
-  generateName: globalfit-argo-
+  generateName: globalfit-test-argo-
 spec:
   entrypoint: globalfit-argo
-  volumes:
-    - name: workdir
-      hostPath:
-        path: /mnt/data
-        type: DirectoryOrCreate
+  volumeClaimTemplates:                 # define volume, same syntax as k8s Pod spec
+  - metadata:
+      name: workdir                     # name of volume claim
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: 1Gi                  # Gi => 1024 * 1024 * 1024
+
   templates:
   - name: globalfit-argo
-    script:
-      image: nooraangelva/global_fit
-      command: [sh]
-      source: |
-        git clone https://github.com/nooraangelva/Global-fit-package.git tmp
-        cd tmp/chic_pol_global_fit
-        make all
-        scripts/run_nrqcd_fit.sh 
-        scripts/run_nrqcd_fit.sh 
-        cd SDCs_Carlos_interpol/fit_1S0_only_LP+NLO/fit_results_report.tex
+    steps:
+    - - name: build
+        template: run
+        
+  - name: run
+    container:
+      image: nooraangelva/global_fit:latest
+      command: [sh, -c]
+      args: ["git clone https://github.com/nooraangelva/Global-fit-package.git tmp; cd tmp/chic_pol_global_fit; make all; scripts/run_nrqcd_fit.sh; scripts/run_nrqcd_fit.sh;  cd SDCs_Carlos_interpol/fit_1S0_only_LP+NLO/fit_results_report.tex; "]
       volumeMounts:
       - name: workdir
         mountPath: /mnt/vol
+    
+
