@@ -17,7 +17,7 @@ Directions for [Linux](https://docs.docker.com/desktop/linux/install/)
 Here on GitHub.com, navigate to the main page of this repository, if you are not already on it.
 ![image](https://user-images.githubusercontent.com/78410623/140979822-66878ab2-bc8f-44f7-8908-e02bcb49ade8.png)
 
-Above the list of files, click  'Code'.
+Above the list of files, click  ```Code```.
 
 If you have ```Git``` you can install it using your terminal, if you don't have ```Git``` you can install it following these [instructions](https://github.com/git-guides/install-git). If you don't want to install ```Git``` you can also download the repository as a zip file and extract it to the place you want to.
 
