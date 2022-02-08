@@ -57,6 +57,8 @@ make all
 scripts/run_nrqcd_fit.sh
 ```
 
+If you have an error: "Permission denied" when running the ```scripts/run_nrqcd_fit.sh``` run the following command before continuing ```chmod +x scripts/run_nrqcd_fit.sh```
+
 The results of the fit can be found in ```.pdf``` form in the directory ```/tmp/chic_pol_global_fit/SDCs_Carlos_interpol/fit_1S0_only_LP+NLO```
 
 You can access them from your file explorer you don't have to use the terminal for it.
