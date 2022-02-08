@@ -1,4 +1,4 @@
-# Global fit package
+# Global Fit Package
  
 ## Set up
  
