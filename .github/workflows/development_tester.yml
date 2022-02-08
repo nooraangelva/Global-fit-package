@@ -28,5 +28,5 @@ jobs:
         argo version
     - name: Submit the argo test workflow
       run: |
-        argo submit -n argo  --wait argo-workflow.yaml
+        argo submit -n argo  --wait --log argo-workflow.yaml
         argo get -n argo @latest
