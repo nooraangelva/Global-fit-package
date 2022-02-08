@@ -24,7 +24,7 @@ spec:
     container:
       image: nooraangelva/global_fit:1.0
       command: [sh, -c]
-      args: ["git clone https://github.com/nooraangelva/Global-fit-package.git tmp; cd tmp/chic_pol_global_fit; make all; scripts/run_nrqcd_fit.sh; cd SDCs_Carlos_interpol/fit_1S0_only_LP+NLO/fit_results_report.pdf; "]
+      args: ["git clone https://github.com/nooraangelva/Global-fit-package.git tmp; cd tmp/chic_pol_global_fit; make all; chmod +x scripts/run_nrqcd_fit.sh; scripts/run_nrqcd_fit.sh; cd SDCs_Carlos_interpol/fit_1S0_only_LP+NLO/plots_for_report;"]
       volumeMounts:
       - name: workdir
         mountPath: /mnt/vol
